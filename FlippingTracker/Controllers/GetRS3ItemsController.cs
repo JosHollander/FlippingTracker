@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using FlippingTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -11,35 +12,27 @@ namespace FlippingTracker.Fetcher
 {
     public class GetRS3ItemsController : Controller
     {
-        string Baseurl = "http://192.168.95.1:5555/";
+        string Baseurl = "http://services.runescape.com/m=itemdb_rs/";
 
         public async Task<ActionResult> Index()
         {
-            List<Product> EmpInfo = new List<Product>();
+            List<Item> EmpInfo = new List<Item>();
 
             using (var client = new HttpClient())
             {
-                //Passing service base url  
                 client.BaseAddress = new Uri(Baseurl);
-
                 client.DefaultRequestHeaders.Clear();
-                //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
-                HttpResponseMessage Res = await client.GetAsync("api/Employee/GetAllEmployees");
-
-                //Checking the response is successful or not which is sent using HttpClient  
+                HttpResponseMessage Res = await client.GetAsync("api/catalogue/items.json?category=21&alpha=a&page=1");
+ 
                 if (Res.IsSuccessStatusCode)
-                {
-                    //Storing the response details recieved from web api   
+                {  
                     var EmpResponse = Res.Content.ReadAsStringAsync().Result;
-
-                    //Deserializing the response recieved from web api and storing into the Employee list  
-                    EmpInfo = JsonConvert.DeserializeObject<List<Product>>(EmpResponse);
-
+                    var tmp = JsonConvert.DeserializeObject<RootObject>(EmpResponse);
+                    EmpInfo = tmp.items;
                 }
-                //returning the employee list to view  
+
                 return View(EmpInfo);
             }
         }
