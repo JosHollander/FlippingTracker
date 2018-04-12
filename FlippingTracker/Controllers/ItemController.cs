@@ -16,7 +16,7 @@ namespace FlippingTracker.Controllers
         [HttpGet]
         public ViewResult List(int productPage = 1) 
             => View(repository.Items
-                .OrderBy(i => i.ItemID)
+                .OrderBy(i => i.id)
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize));
     }
