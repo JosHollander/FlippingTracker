@@ -1,11 +1,11 @@
 ﻿
-@model IEnumerable<Item>
+@model ItemsListViewModel
 
-@foreach (var p in Model)
+@foreach (var p in Model.Items)
 {
     <div>
-        <h3>@p.Name</h3>
-        @p.Description
-        <h4>@p.Price.ToString("C")</h4>
+        <h3>@p.name</h3>
+        @p.description
+        <h4>@p.type</h4>
     </div>
 }
