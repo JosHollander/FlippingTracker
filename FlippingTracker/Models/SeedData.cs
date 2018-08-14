@@ -15,12 +15,12 @@ namespace FlippingTracker.Models
             if (!context.Items.Any())
             {
                 context.Items.AddRange(
-                    new Item { Name = "Wand of the Cywir Elders", Type = "Nex", Price = 11500000},
-                    new Item { Name = "Bandos tassets", Type = "GWD", Price = 3200000},
-                    new Item { Name = "Bandos chestplate", Type = "GWD", Price = 1600000},
-                    new Item { Name = "Orb of the Cywir Elders", Type = "Nex", Price = 7000000 },
-                    new Item { Name = "Sysmic wand", Type = "Nex", Price = 105100000 },
-                    new Item { Name = "Noxious staff", Type = "Nex", Price = 159400000 }
+                    new Item { name = "Wand of the Cywir Elders", type = "Nex", price = "15.1m" },
+                    new Item { name = "Bandos tassets", type = "GWD", price = "3.2m"},
+                    new Item { name = "Bandos chestplate", type = "GWD", price = "2.3m"},
+                    new Item { name = "Orb of the Cywir Elders", type = "Nex", price = "7m" },
+                    new Item { name = "Sysmic wand", type = "Nex", price = "1000m" },
+                    new Item { name = "Noxious staff", type = "Nex", price = "146.1m" }
                 );
                 context.SaveChanges();
             }

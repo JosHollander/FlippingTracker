@@ -9,9 +9,9 @@ namespace FlippingTracker.Models
     {
         public IQueryable<Item> Items => new List<Item>
         {
-            new Item { Name = "Wand of the Cywir Elders", Type = "Nex"},
-            new Item { Name = "Bandos tassets", Type = "GWD"},
-            new Item { Name = "Bandos chestplate", Type = "GWD"},
+            new Item { name = "Wand of the Cywir Elders", type = "Nex"},
+            new Item { name = "Bandos tassets", type = "GWD"},
+            new Item { name = "Bandos chestplate", type = "GWD"},
         }.AsQueryable<Item>();
     }
 }
