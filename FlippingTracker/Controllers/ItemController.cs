@@ -19,7 +19,7 @@ namespace FlippingTracker.Controllers
             => View(new ItemsListViewModel
             {
                 Items = repository.Items
-                    .OrderBy(p => p.id)
+                    .OrderBy(p => p.itemId)
                     .Skip((itemPage - 1) * PageSize)
                     .Take(PageSize),
                 PagingInfo = new PagingInfo

@@ -7,7 +7,7 @@ namespace FlippingTracker.Models
 {
     public class Item
     {
-        public int id { get; set; }
+        public int itemId { get; set; }
         public string icon { get; set; }
         public string icon_large { get; set; }   
         public string type { get; set; }

@@ -17,11 +17,11 @@ namespace FlippingTracker.Tests
             Mock<IItemRepository> mock = new Mock<IItemRepository>();
             mock.Setup(m => m.Items).Returns((new Item[]
             {
-                new Item {id = 1, name = "P1"},
-                new Item {id = 2, name = "P2"},
-                new Item {id = 3, name = "P3"},
-                new Item {id = 4, name = "P4"},
-                new Item {id = 5, name = "P5"}
+                new Item {itemId = 1, name = "P1"},
+                new Item {itemId = 2, name = "P2"},
+                new Item {itemId = 3, name = "P3"},
+                new Item {itemId = 4, name = "P4"},
+                new Item {itemId = 5, name = "P5"}
             }).AsQueryable<Item>());
 
             ItemController controller = new ItemController(mock.Object);
@@ -44,11 +44,11 @@ namespace FlippingTracker.Tests
             Mock<IItemRepository> mock = new Mock<IItemRepository>();
             mock.Setup(m => m.Items).Returns((new Item[]
             {
-                new Item {id = 1, name = "P1"},
-                new Item {id = 2, name = "P2"},
-                new Item {id = 3, name = "P3"},
-                new Item {id = 4, name = "P4"},
-                new Item {id = 5, name = "P5"},
+                new Item {itemId = 1, name = "P1"},
+                new Item {itemId = 2, name = "P2"},
+                new Item {itemId = 3, name = "P3"},
+                new Item {itemId = 4, name = "P4"},
+                new Item {itemId = 5, name = "P5"},
             }).AsQueryable<Item>());
 
             ItemController controller = new ItemController(mock.Object) { PageSize = 3};
