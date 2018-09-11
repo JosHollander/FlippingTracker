@@ -29,7 +29,6 @@ namespace FlippingTracker
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStatusCodePages();
-            app.UseBrowserLink();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseMvc(routes =>
